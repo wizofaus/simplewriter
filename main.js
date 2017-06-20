@@ -8,7 +8,9 @@ let win;
 
 function createWindow () {
     win = new BrowserWindow({
-        with: 800,
+        // frame: false,
+        titleBarStyle: 'hidden',
+        width: 800,
         height: 600
     })
 
@@ -52,7 +54,7 @@ ipcMain.on('saveFile', (event, path) => {
 
         let path = filePath;
         let hasExtn = filePath.match(/\.[a-z]{3}/);
-        
+
         if (typeof(hasExtn) === 'object' && !hasExtn) {
              path = path + '.txt';
         } 

@@ -13,12 +13,30 @@
         <script src="node_modules/jquery/dist/jquery.js"></script>
         <script src="node_modules/materialize-css/dist/js/materialize.js"></script>
         <style>
+            @font-face {
+                font-family: myFirstFont;
+                src: url('fonts/Proxima Nova.otf');
+            }
+
             body {
                 max-height: 100vh !important;
+                -webkit-app-region: drag
             }
+
             .materialize-textarea {
                 height: 75vh !important; 
             }
+
+            textarea {
+                text-align: justify;
+                font: myFirstFont;
+                font-family: myFirstFont;
+                size: 16em;
+            }
+
+            
+
+            
         </style>
     </head>
     <body>
@@ -32,10 +50,12 @@
             <div class="container">
                 <div class="row"></div>
                 <div class="row">
-                    <form class="col s12 m8 offset-m2 " id="simplewriter">
+                    <form class="col s12 m8 offset-m2" id="simplewriter">
                         <div class="row">
                             <div class="input-field col s12">
-                                <textarea id="content" class="materialize-textarea z-depth-3"></textarea>
+                                <textarea id="content" class="materialize-textarea z-depth-3">
+
+                                </textarea>
                                 <label class="active" for="content">Write...</label>
                             </div>
                         </div>
