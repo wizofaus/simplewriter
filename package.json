@@ -1,0 +1,15 @@
+{
+  "name": "simplewriter",
+  "version": "1.0.0",
+  "description": "A simple writing app",
+  "main": "main.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "write",
+    "writing"
+  ],
+  "author": "Fourat Janabi",
+  "license": "MIT"
+}
