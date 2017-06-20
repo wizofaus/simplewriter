@@ -32,7 +32,7 @@
             <div class="container">
                 <div class="row"></div>
                 <div class="row">
-                    <form class="col s12" id="simplewriter">
+                    <form class="col s12 m8 offset-m2 " id="simplewriter">
                         <div class="row">
                             <div class="input-field col s12">
                                 <textarea id="content" class="materialize-textarea z-depth-3"></textarea>
@@ -55,10 +55,11 @@
         <script type="text/javascript">
             const { ipcRenderer } = require('electron');
             const fs = require('fs');
+            var elem = document.getElementById('content');
             
-            const   content = $('#content');
-                    openButton = $('#open'),
-                    saveButton = $('#save');
+            var content = $('#content');
+                openButton = $('#open'),
+                saveButton = $('#save');
 
             $(openButton).on("click", function (e) {
                 e.preventDefault();
@@ -72,21 +73,17 @@
             
 
             ipcRenderer.on('fileData', (event, data) => {
-                $(content).text(data);
+                elem.innerHTML = data;
             });
 
             ipcRenderer.on('saveConfirmation', (event, path) => {
                 console.log(path);
-                
+
                 let content = $('#content').val();
                         
                 fs.writeFile(path, content, (err) => {
-                    if (err) {
+                    if (err) 
                         alert("An error ocurred creating the file " + err.message)
-                    }
-
-                    console.log('file saved!');
-
                 });
             })
         </script>
