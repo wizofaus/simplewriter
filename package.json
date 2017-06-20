@@ -11,5 +11,16 @@
     "writing"
   ],
   "author": "Fourat Janabi",
-  "license": "MIT"
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/fouratj/simplewriter.git"
+  },
+  "bugs": {
+    "url": "https://github.com/fouratj/simplewriter/issues"
+  },
+  "homepage": "https://github.com/fouratj/simplewriter#readme",
+  "dependencies": {
+    "materialize-css": "^0.98.2"
+  }
 }
