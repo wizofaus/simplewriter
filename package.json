@@ -4,7 +4,8 @@
   "description": "A simple writing app",
   "main": "main.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "electron ./main.js"
   },
   "keywords": [
     "write",
@@ -21,6 +22,7 @@
   },
   "homepage": "https://github.com/fouratj/simplewriter#readme",
   "dependencies": {
+    "jquery": "^2.2.4",
     "materialize-css": "^0.98.2"
   }
 }

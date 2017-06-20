@@ -9,15 +9,87 @@
         <title></title>
         <meta name="description" content="">
         <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" href="node_modules/materialize-css/dist/css/materialize.min.css">
+        <script src="node_modules/jquery/dist/jquery.js"></script>
+        <script src="node_modules/materialize-css/dist/js/materialize.js"></script>
+        <style>
+            body {
+                max-height: 100vh !important;
+            }
+            .materialize-textarea {
+                height: 75vh !important; 
+            }
+        </style>
     </head>
     <body>
-        <!--[if lt IE 7]>
-            <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="#">upgrade your browser</a> to improve your experience.</p>
-        <![endif]-->
-        <h1>Hello World</h1>
+        <!--
         We are using node <script>document.write(process.versions.node)</script>,
         Chrome <script>document.write(process.versions.chrome)</script>,
         and Electron <script>document.write(process.versions.electron)</script>.
+        -->
+        <header></header>
+        <main>
+            <div class="container">
+                <div class="row"></div>
+                <div class="row">
+                    <form class="col s12" id="simplewriter">
+                        <div class="row">
+                            <div class="input-field col s12">
+                                <textarea id="content" class="materialize-textarea z-depth-3"></textarea>
+                                <label class="active" for="content">Write...</label>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col s12">
+                                <button class="btn waves-effect waves-light left" id="open">OPEN</button>
+                                <button class="btn waves-effect waves-light right" id="save">SAVE</button>
+                            </div>
+                        </div>
+                    </form>
+
+                </div>
+            </div>
+        </main>
+        <footer></footer>
         
+        <script type="text/javascript">
+            const { ipcRenderer } = require('electron');
+            const fs = require('fs');
+            
+            const   content = $('#content');
+                    openButton = $('#open'),
+                    saveButton = $('#save');
+
+            $(openButton).on("click", function (e) {
+                e.preventDefault();
+                ipcRenderer.send('openFile');
+            });
+
+            $(saveButton).on("click", function (e) {
+                e.preventDefault();
+                ipcRenderer.send('saveFile', content)
+            });
+            
+
+            ipcRenderer.on('fileData', (event, data) => {
+                $(content).text(data);
+            });
+
+            ipcRenderer.on('saveConfirmation', (event, path) => {
+                console.log(path);
+                
+                let content = $('#content').val();
+                        
+                fs.writeFile(path, content, (err) => {
+                    if (err) {
+                        alert("An error ocurred creating the file " + err.message)
+                    }
+
+                    console.log('file saved!');
+
+                });
+            })
+        </script>
+        <!--<script src="./write.js" ></script>-->
     </body>
 </html>
