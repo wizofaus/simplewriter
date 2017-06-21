@@ -132,7 +132,7 @@
             const fs = require('fs');
             
             
-            var content = $('#content');
+            let content = $('#content');
                 openButton = $('#open'),
                 saveButton = $('#save');
 
@@ -148,14 +148,11 @@
             
 
             ipcRenderer.on('fileData', (event, data) => {
-                console.log(data)
-                var elem = document.getElementById('content');
+                let elem = document.getElementById('content');
                 elem.innerHTML = data.toString();
             });
 
             ipcRenderer.on('saveConfirmation', (event, path) => {
-                console.log(path);
-
                 let content = $('#content').val();
                         
                 fs.writeFile(path, content, (err) => {
