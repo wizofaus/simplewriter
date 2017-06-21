@@ -10,6 +10,7 @@
         <meta name="description" content="">
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <link rel="stylesheet" href="css/materialize.min.css">
+        <link href="css/icon.css" rel="stylesheet">
         <script src="node_modules/jquery/dist/jquery.js"></script>
         <script>var hammer = require('hammerjs');</script>
         <script src="js/materialize.min.js"></script>
@@ -69,8 +70,6 @@
 
             textarea {
                 text-align: justify;
-                font: myFirstFont;
-                font-family: myFirstFont;
                 size: 16em;
             }
 
@@ -90,6 +89,20 @@
                 <li><a href="#!" id="open">Open</a></li>
                 <li><a href="#!" id="save">Save</a></li>
                 <li><div class="divider"></div></li>
+                <li class="no-padding">
+                    <ul class="collapsible collapsible-accordion">
+                        <li>
+                            <a class="collapsible-header">Stats<i class="material-icons right">arrow_drop_down</i></a>
+                            <div class="collapsible-body">
+                                <ul>
+                                    <li><a href="#!">Words:</a></li>
+                                    <li><a href="#!">Chars:</a></li>
+                                    <!--<li><a href="#!">Paragraphs:</a></li>-->
+                                </ul>
+                            </div>
+                        </li>
+                    </ul>
+                </li>
             </ul>
             <a href="#" data-activates="slide-out" class="button-collapse">
                 <i class="material-icons">menu</i>
@@ -103,8 +116,9 @@
                         <div class="row">
                             <div class="input-field col s12">
                                 <textarea id="content" class="materialize-textarea z-depth-3">
+
                                 </textarea>
-                                <label class="active" for="content"></label>
+                                
                             </div>
                         </div>
                     </form>
@@ -112,12 +126,11 @@
                 </div>
             </div>
         </main>
-        <footer></footer>
         
-        <script type="text/javascript">
+        <script>
             const { ipcRenderer } = require('electron');
             const fs = require('fs');
-            var elem = document.getElementById('content');
+            
             
             var content = $('#content');
                 openButton = $('#open'),
@@ -135,7 +148,9 @@
             
 
             ipcRenderer.on('fileData', (event, data) => {
-                elem.innerHTML = data;
+                console.log(data)
+                var elem = document.getElementById('content');
+                elem.innerHTML = data.toString();
             });
 
             ipcRenderer.on('saveConfirmation', (event, path) => {
@@ -155,7 +170,7 @@
                 $('#content').focus();
                 // $(".button-collapse").sideNav();
                 $('.button-collapse').sideNav({
-                    menuWidth: 300, // Default is 300
+                    menuWidth: 150, // Default is 300
                     edge: 'left', // Choose the horizontal origin
                     closeOnClick: true, // Closes side-nav on <a> clicks, useful for Angular/Meteor
                     draggable: true // Choose whether you can drag to open on touch screens
