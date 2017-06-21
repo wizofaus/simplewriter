@@ -1,13 +1,7 @@
 let $ = require('jquery');
-let fs = require('fs');
-let filename = 'simplewriter';
+let wordCount = $('#word');
+let charCount = $('#char');
 
-// $('#simplewriter').on('submit', (e) => {
-//     e.preventDefault();
-//     let content = $('#content').val();
-    
-//     fs.appendFile('simplewriter.txt', content, 'utf-8', (err) => {
-//         if (err) throw err;
-//         console.log("saved")
-//     });
-// })
+const updateWordCount = setInterval(function () {
+
+}, 1000);
