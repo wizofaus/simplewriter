@@ -56,8 +56,6 @@ ipcMain.on('saveFile', (event, path) => {
         if (typeof(hasExtn) === 'object' && !hasExtn) 
             path = path + '.txt';
         
-
-
         event.sender.send('saveConfirmation', path);
 
     });

@@ -116,9 +116,7 @@
                     <form class="col s12 m8 offset-m2" id="simplewriter">
                         <div class="row">
                             <div class="input-field col s12">
-                                <textarea id="content" class="materialize-textarea">
-
-                                </textarea>
+                                <textarea id="content" class="materialize-textarea"></textarea>
                             </div>
                         </div>
                     </form>
@@ -142,7 +140,7 @@
 
             $(saveButton).on("click", function (e) {
                 e.preventDefault();
-                ipcRenderer.send('saveFile', content)
+                ipcRenderer.send('saveFile')
             });
             
 
