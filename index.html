@@ -15,12 +15,12 @@
         <script>var hammer = require('hammerjs');</script>
         <script src="js/materialize.min.js"></script>
         <style>
-            /*
+            
             @font-face {
                 font-family: myFirstFont;
                 src: url('fonts/Proxima Nova.otf');
             }
-            */
+            
             /*
             @font-face {
                 font-family: 'Material Icons';
@@ -71,6 +71,7 @@
 
             textarea {
                 text-align: justify;
+                border-bottom: 0 !important;
                 
             }
 
@@ -115,7 +116,7 @@
                 <div class="row">
                     <form class="col s12 m8 offset-m2" id="simplewriter">
                         <div class="row">
-                            <div class="input-field col s12">
+                            <div id="contentWrapper" class="input-field col s12 z-depth-1">
                                 <textarea id="content" class="materialize-textarea"></textarea>
                             </div>
                         </div>
@@ -161,7 +162,7 @@
         <script>
             $(document).ready(function () {
                 // $('#content').val('');
-                // $('#content').focus();
+                $('#content').focus();
                 $('.button-collapse').sideNav({
                     menuWidth: 150, // Default is 300
                     edge: 'left', // Choose the horizontal origin
@@ -171,6 +172,6 @@
                 );
             });
         </script>
-        <script src="./write.js"></script>
+        <script src="./count.js"></script>
     </body>
 </html>
