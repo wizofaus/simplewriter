@@ -62,11 +62,17 @@
 
             body {
                 max-height: 100vh !important;
-                -webkit-app-region: drag
+                -webkit-app-region: drag;
+                background: #ece9e6; /* fallback for old browsers */
+            background: -webkit-linear-gradient(left, #ece9e6, #ffffff);
+              background: -moz-linear-gradient(left, #ece9e6, #ffffff);
+              background: -o-linear-gradient(left, #ece9e6, #ffffff);
+              background: linear-gradient(to right, #ece9e6, #ffffff); /* Chrome 10-25, Safari 5.1-6 */ /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
             }
 
             .materialize-textarea {
                 height: 75vh !important; 
+                background-color: white;
             }
 
             textarea {
@@ -116,39 +122,7 @@
             </div>
         </main>
         
-        <script>
-            const { ipcRenderer } = require('electron');
-            const fs = require('fs');
-            
-            
-            let openButton = $('#open'),
-                saveButton = $('#save');
-
-            $(openButton).on("click", function (e) {
-                e.preventDefault();
-                ipcRenderer.send('openFile');
-            });
-
-            $(saveButton).on("click", function (e) {
-                e.preventDefault();
-                ipcRenderer.send('saveFile')
-            });
-            
-
-            ipcRenderer.on('fileData', (event, data) => {
-                let elem = document.getElementById('content');
-                elem.innerHTML = data.toString();
-            });
-
-            ipcRenderer.on('saveConfirmation', (event, path) => {
-                let content = $('#content').val();
-                        
-                fs.writeFile(path, content, (err) => {
-                    if (err) 
-                        alert("An error ocurred creating the file " + err.message)
-                });
-            })
-        </script>
+        
         <script>
             $(document).ready(function () {
                 // $('#content').val('');
@@ -162,6 +136,7 @@
                 );
             });
         </script>
+        <script src="./controller.js"></script>
         <script src="./count.js"></script>
     </body>
 </html>

@@ -1,4 +1,4 @@
-let $ = require('jquery');
+// let $ = require('jquery');
 let contentWrapper = $('#contentWrapper');
 let wordCount = $('#word');
 let charCount = $('#char');
@@ -11,7 +11,7 @@ const updateWordCount = setInterval(function () {
 
 window.addEventListener("keyup", function () {
     $(contentWrapper).addClass('z-depth-2');
-    
+
     setTimeout(function () {
         $(contentWrapper).removeClass('z-depth-2');
     }, 25);
