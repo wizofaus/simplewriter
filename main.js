@@ -48,30 +48,18 @@ ipcMain.on('saveFile', (event, path) => {
 
     dialog.showSaveDialog(function (filePath) {
         
-        if (filePath === "undefined") {
-            return;
-        }
-
+        if (filePath === "undefined") return;
+        
         let path = filePath;
         let hasExtn = filePath.match(/\.[a-z]{3}/);
 
-        if (typeof(hasExtn) === 'object' && !hasExtn) {
-             path = path + '.txt';
-        } 
-
+        if (typeof(hasExtn) === 'object' && !hasExtn) 
+            path = path + '.txt';
         
+
 
         event.sender.send('saveConfirmation', path);
 
-        // saveFile(filepath);
-        // fs.writeFile(filePath, filePath, (err) => {
-        //     if (err) {
-        //         alert("An error ocurred creating the file "+ err.message)
-        //     }
-                        
-            
-        //     event.sender.send('saveConfirmation');
-        // });
     });
 
 });

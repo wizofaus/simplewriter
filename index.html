@@ -21,18 +21,19 @@
                 src: url('fonts/Proxima Nova.otf');
             }
             */
-
+            /*
             @font-face {
                 font-family: 'Material Icons';
                 font-style: normal;
                 font-weight: 400;
-                src: url(icons/iconfont/MaterialIcons-Regular.eot); /* For IE6-8 */
+                src: url(icons/iconfont/MaterialIcons-Regular.eot);
                 src: local('Material Icons'),
                         local('MaterialIcons-Regular'),
                         url(icons/iconfont/MaterialIcons-Regular.woff2) format('woff2'),
                         url(icons/iconfont/MaterialIcons-Regular.woff) format('woff'),
                         url(icons/iconfont/MaterialIcons-Regular.ttf) format('truetype');
             }
+            */
 
             .material-icons {
             font-family: 'Material Icons';
@@ -70,7 +71,7 @@
 
             textarea {
                 text-align: justify;
-                size: 16em;
+                
             }
 
             
@@ -115,7 +116,7 @@
                     <form class="col s12 m8 offset-m2" id="simplewriter">
                         <div class="row">
                             <div class="input-field col s12">
-                                <textarea id="content" class="materialize-textarea z-depth-3">
+                                <textarea id="content" class="materialize-textarea">
 
                                 </textarea>
                             </div>
@@ -131,8 +132,7 @@
             const fs = require('fs');
             
             
-            let content = $('#content');
-                openButton = $('#open'),
+            let openButton = $('#open'),
                 saveButton = $('#save');
 
             $(openButton).on("click", function (e) {
@@ -162,8 +162,8 @@
         </script>
         <script>
             $(document).ready(function () {
-                $('#content').val('');
-                $('#content').focus();
+                // $('#content').val('');
+                // $('#content').focus();
                 $('.button-collapse').sideNav({
                     menuWidth: 150, // Default is 300
                     edge: 'left', // Choose the horizontal origin

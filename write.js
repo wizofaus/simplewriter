@@ -3,5 +3,6 @@ let wordCount = $('#word');
 let charCount = $('#char');
 
 const updateWordCount = setInterval(function () {
-
-}, 1000);
+    let content = $('#content').val();
+    console.log(content);
+}, 5000);
