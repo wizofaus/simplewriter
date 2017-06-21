@@ -22,6 +22,7 @@
   },
   "homepage": "https://github.com/fouratj/simplewriter#readme",
   "dependencies": {
+    "hammerjs": "^2.0.8",
     "jquery": "^2.2.4",
     "materialize-css": "^0.98.2"
   }

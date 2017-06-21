@@ -8,8 +8,8 @@ let win;
 
 function createWindow () {
     win = new BrowserWindow({
-        // frame: false,
-        titleBarStyle: 'hidden',
+        frame: false,
+        // titleBarStyle: 'hidden',
         width: 800,
         height: 600
     })

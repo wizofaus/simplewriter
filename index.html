@@ -6,16 +6,56 @@
     <head>
         <meta charset="utf-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
-        <title></title>
+        <title>Simple Writer</title>
         <meta name="description" content="">
         <meta name="viewport" content="width=device-width, initial-scale=1">
-        <link rel="stylesheet" href="node_modules/materialize-css/dist/css/materialize.min.css">
+        <link rel="stylesheet" href="css/materialize.min.css">
         <script src="node_modules/jquery/dist/jquery.js"></script>
-        <script src="node_modules/materialize-css/dist/js/materialize.js"></script>
+        <script>var hammer = require('hammerjs');</script>
+        <script src="js/materialize.min.js"></script>
         <style>
+            /*
             @font-face {
                 font-family: myFirstFont;
                 src: url('fonts/Proxima Nova.otf');
+            }
+            */
+
+            @font-face {
+                font-family: 'Material Icons';
+                font-style: normal;
+                font-weight: 400;
+                src: url(icons/iconfont/MaterialIcons-Regular.eot); /* For IE6-8 */
+                src: local('Material Icons'),
+                        local('MaterialIcons-Regular'),
+                        url(icons/iconfont/MaterialIcons-Regular.woff2) format('woff2'),
+                        url(icons/iconfont/MaterialIcons-Regular.woff) format('woff'),
+                        url(icons/iconfont/MaterialIcons-Regular.ttf) format('truetype');
+            }
+
+            .material-icons {
+            font-family: 'Material Icons';
+            font-weight: normal;
+            font-style: normal;
+            font-size: 24px;  /* Preferred icon size */
+            display: inline-block;
+            line-height: 1;
+            text-transform: none;
+            letter-spacing: normal;
+            word-wrap: normal;
+            white-space: nowrap;
+            direction: ltr;
+
+            /* Support for all WebKit browsers. */
+            -webkit-font-smoothing: antialiased;
+            /* Support for Safari and Chrome. */
+            text-rendering: optimizeLegibility;
+
+            /* Support for Firefox. */
+            -moz-osx-font-smoothing: grayscale;
+
+            /* Support for IE. */
+            font-feature-settings: 'liga';
             }
 
             body {
@@ -45,7 +85,18 @@
         Chrome <script>document.write(process.versions.chrome)</script>,
         and Electron <script>document.write(process.versions.electron)</script>.
         -->
-        <header></header>
+        <header>
+            <ul id="slide-out" class="side-nav">
+                <li><a href="#!"><i class="material-icons">cloud</i>First Link With Icon</a></li>
+                <li><a href="#!">Second Link</a></li>
+                <li><div class="divider"></div></li>
+                <li><a class="subheader">Subheader</a></li>
+                <li><a class="waves-effect" href="#!">Third Link With Waves</a></li>
+            </ul>
+            <a href="#" data-activates="slide-out" class="button-collapse">
+                <i class="material-icons">menu</i>
+            </a>
+        </header>
         <main>
             <div class="container">
                 <div class="row"></div>
@@ -54,9 +105,8 @@
                         <div class="row">
                             <div class="input-field col s12">
                                 <textarea id="content" class="materialize-textarea z-depth-3">
-
                                 </textarea>
-                                <label class="active" for="content">Write...</label>
+                                <label class="active" for="content"></label>
                             </div>
                         </div>
                         <div class="row">
@@ -107,6 +157,20 @@
                 });
             })
         </script>
-        <!--<script src="./write.js" ></script>-->
+        <script>
+            $(document).ready(function () {
+                $('#content').val('');
+                $('#content').focus();
+                // $(".button-collapse").sideNav();
+                $('.button-collapse').sideNav({
+                    menuWidth: 300, // Default is 300
+                    edge: 'left', // Choose the horizontal origin
+                    closeOnClick: true, // Closes side-nav on <a> clicks, useful for Angular/Meteor
+                    draggable: true // Choose whether you can drag to open on touch screens
+                    }
+                );
+            });
+        </script>
+        <!--<script src="./write.js"></script>-->
     </body>
 </html>
