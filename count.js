@@ -3,25 +3,29 @@ let wordCount = $('#word');
 let charCount = $('#char');
 let infoIcon = $('#info');
 
-const updateWordCount = setInterval(function () {
+function updateWordCount () {
+    console.log('update')
     let content = $('#content').val();
-
+    console.log(content)
     if (content && content.length > 0) { 
-        $(charCount).text(content.length);
-        $(wordCount).text(content.split(' ').length);
+        // $(charCount).text(content.length);
+        // $(wordCount).text(content.split(' ').length);
         $('#char2').text(content.length);
         $('#word2').text(content.split(' ').length);
     }
     
     
-}, 5000);
+}
 
 window.addEventListener("keyup", function () {
-    $(contentWrapper).addClass('z-depth-2');
+    console.log('keyup')
+    // $(contentWrapper).addClass('z-depth-2');
 
-    setTimeout(function () {
-        $(contentWrapper).removeClass('z-depth-2');
-    }, 25); 
+    // setTimeout(function () {
+    //     $(contentWrapper).removeClass('z-depth-2');
+    // }, 25);
+
+    updateWordCount();
 });
 
 info.addEventListener("mouseenter", function () {

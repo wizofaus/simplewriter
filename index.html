@@ -14,27 +14,12 @@
         <script src="node_modules/jquery/dist/jquery.js"></script>
         <script>var hammer = require('hammerjs');</script>
         <script src="js/materialize.min.js"></script>
-        <style>
-            
+        <style>     
             @font-face {
                 font-family: myFirstFont;
                 src: url('fonts/Proxima Nova.otf');
             }
             
-            /*
-            @font-face {
-                font-family: 'Material Icons';
-                font-style: normal;
-                font-weight: 400;
-                src: url(icons/iconfont/MaterialIcons-Regular.eot);
-                src: local('Material Icons'),
-                        local('MaterialIcons-Regular'),
-                        url(icons/iconfont/MaterialIcons-Regular.woff2) format('woff2'),
-                        url(icons/iconfont/MaterialIcons-Regular.woff) format('woff'),
-                        url(icons/iconfont/MaterialIcons-Regular.ttf) format('truetype');
-            }
-            */
-
             .material-icons {
             font-family: 'Material Icons';
             font-weight: normal;
@@ -116,10 +101,9 @@
                     <form class="col s12 m8 offset-m2" id="simplewriter">
                         <div class="row">
                             <div id="contentWrapper" class="input-field col s12 z-depth-1">
-                                <textarea class="flow-text materialize-textarea">
+                                <textarea id="content" class="flow-text materialize-textarea">
                                   
                                 </textarea>
-                                
                             </div>
                         </div>
                     </form>
