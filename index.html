@@ -102,8 +102,11 @@
                     </ul>
                 </li>
             </ul>
-            <a href="#" data-activates="slide-out" class="button-collapse">
+            <a href="#!" data-activates="slide-out" class="button-collapse">
                 <i class="material-icons">menu</i>
+            </a>
+            <a href="#!" id="info" class="right">
+                <i class="material-icons">info_outline</i>
             </a>
         </header>
         <main>
@@ -113,11 +116,23 @@
                     <form class="col s12 m8 offset-m2" id="simplewriter">
                         <div class="row">
                             <div id="contentWrapper" class="input-field col s12 z-depth-1">
-                                <textarea id="content" class="materialize-textarea"></textarea>
+                                <textarea class="flow-text materialize-textarea">
+                                  
+                                </textarea>
+                                
                             </div>
                         </div>
                     </form>
-
+                </div>
+                <div class="row" id="stats" style="display: none;">
+                    <div class="col s12 m8 offset-m2">
+                        <h1>Words: <small id="word2">0</small></h1>
+                        
+                    </div>
+                    <div class="col s12 m8 offset-m2">
+                        <h1>Characters: <small id="char2">0</small></h1>
+                        
+                    </div>
                 </div>
             </div>
         </main>
