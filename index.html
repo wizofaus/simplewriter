@@ -2,7 +2,7 @@
 <!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
 <!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
 <!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
-<!--[if gt IE 8]><!--> <html class="no-js"> <!--<![endif]-->
+<!--[if gt IE 8]><!--><html class="no-js"><!--<![endif]-->
     <head>
         <meta charset="utf-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -103,9 +103,7 @@
                     <form class="col s12 m8 offset-m2" id="simplewriter">
                         <div class="row">
                             <div id="contentWrapper" class="input-field col s12 z-depth-1">
-                                <textarea id="content" class="flow-text materialize-textarea">
-                                  
-                                </textarea>
+                                <textarea id="content" class="flow-text materialize-textarea"></textarea>
                             </div>
                         </div>
                     </form>
@@ -113,7 +111,6 @@
                 <div class="row" id="stats" style="display: none;">
                     <div class="col s12 m8 offset-m2">
                         <h1>Words: <small id="word2">0</small></h1>
-                        
                     </div>
                     <div class="col s12 m8 offset-m2">
                         <h1>Characters: <small id="char2">0</small></h1>
@@ -125,16 +122,16 @@
         <script>
             $(document).ready(function () {
                 $('#content').focus();
+
                 $('.button-collapse').sideNav({
                     menuWidth: 150, // Default is 300
                     edge: 'left', // Choose the horizontal origin
                     closeOnClick: true, // Closes side-nav on <a> clicks, useful for Angular/Meteor
                     draggable: false // Choose whether you can drag to open on touch screens
-                    }
-                );
+                });
             });
         </script>
-        <script src="./controller.js"></script>
-        <script src="./count.js"></script>
+        
+        <script src="./index.js"></script>
     </body>
 </html>

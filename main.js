@@ -35,7 +35,7 @@ ipcMain.on('openFile', (event, path) => {
 
         fs.readFile(filepath, 'utf-8', (err, data) => {
             if (err) {
-                alert("error occured");
+                console.log("error occured");
                 return;
             }
 
