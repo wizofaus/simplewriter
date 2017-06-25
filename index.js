@@ -22,10 +22,10 @@ function SimpleWriter () {
     this.infoIcon.on({
         mouseenter: () => {
             console.log(this)
-            this.showCount()//.bind(this);
+            this.showCount()
         },
         mouseleave: () => {
-            this.showWrite()//.bind(this);
+            this.showWrite()
         }
     })
 }
@@ -64,14 +64,12 @@ SimpleWriter.prototype.loadFile = function (event, data) {
 }
 
 SimpleWriter.prototype.showCount = function () {
-    console.log('showCount')
     $(this.contentWrapper).fadeOut("slow", () => {
         $(this.stats).fadeIn();
     });
 }
 
 SimpleWriter.prototype.showWrite = function () {
-    console.log('showWrite')
     $(this.stats).fadeOut("slow", () => {
         $(this.contentWrapper).fadeIn();
     });   
