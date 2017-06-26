@@ -9,7 +9,6 @@ let win;
 function createWindow () {
     win = new BrowserWindow({
         frame: false,
-        // titleBarStyle: 'hidden',
         width: 800,
         height: 600
     })
@@ -61,7 +60,5 @@ ipcMain.on('saveFile', (event, path) => {
     });
 
 });
-
-
 
 app.on('ready', createWindow);
