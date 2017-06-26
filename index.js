@@ -21,7 +21,6 @@ function SimpleWriter () {
 
     this.infoIcon.on({
         mouseenter: () => {
-            console.log(this)
             this.showCount()
         },
         mouseleave: () => {
@@ -54,7 +53,7 @@ SimpleWriter.prototype.saveFile = function (event, path) {
     });
 }
 
-SimpleWriter.prototype.open = function (e) {
+SimpleWriter.prototype.open = function (event) {
     event.preventDefault();
     ipcRenderer.send('openFile');
 }
