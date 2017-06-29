@@ -46,11 +46,16 @@ SimpleWriter.prototype.save = function (event) {
 
 SimpleWriter.prototype.saveFile = function (event, path) {
     let content = $('#content').val();
-            
-    fs.writeFile(path, content, (err) => {
-        if (err) 
-            alert("An error ocurred creating the file " + err.message);
-    });
+    
+    try {
+        fs.writeFile(path, content, (err) => {
+            if (err) 
+                alert("An error ocurred creating the file " + err.message);
+        });
+    } catch (e) {
+        alert("File not saved.")
+    }
+
 }
 
 SimpleWriter.prototype.open = function (event) {
